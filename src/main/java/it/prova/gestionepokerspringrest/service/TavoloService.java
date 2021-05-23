@@ -3,6 +3,7 @@ package it.prova.gestionepokerspringrest.service;
 import java.util.List;
 
 import it.prova.gestionepokerspringrest.model.Tavolo;
+import it.prova.gestionepokerspringrest.model.Utente;
 
 public interface TavoloService {
 
@@ -17,4 +18,6 @@ public interface TavoloService {
 	public Tavolo inserisciNuovo(Tavolo tavoloInstance);
 
 	public void rimuovi(Tavolo tavoloInstance);
+	
+	public List<Tavolo> cercaPerUtente(Utente utenteInstance); 
 }

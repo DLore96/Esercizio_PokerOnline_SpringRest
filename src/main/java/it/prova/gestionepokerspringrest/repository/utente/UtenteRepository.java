@@ -14,5 +14,7 @@ public interface UtenteRepository extends CrudRepository<Utente, Long>, CustomUt
 	
 	@Query("select u from Utente u left join fetch u.ruoli r left join fetch u.tavolo t where u.id=?1")
 	Utente findOneEagerRuoliTavoli(Long id);
+	
+	
 
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.prova.gestionepokerspringrest.model.Tavolo;
+import it.prova.gestionepokerspringrest.model.Utente;
 import it.prova.gestionepokerspringrest.repository.tavolo.TavoloRepository;
 
 @Service
@@ -32,6 +33,9 @@ public class TavoloServiceImpl implements TavoloService{
 
 	@Override
 	public Tavolo aggiorna(Tavolo tavoloInstance) {
+		if(!tavoloInstance.getUtenti().isEmpty()) {
+			throw new RuntimeException("Non puoi aggiornare mentre ci sono giocatori");
+		}
 		return repository.save(tavoloInstance);
 	}
 
@@ -43,7 +47,15 @@ public class TavoloServiceImpl implements TavoloService{
 	@Override
 	public void rimuovi(Tavolo tavoloInstance) {
 
+		if(!tavoloInstance.getUtenti().isEmpty()) {
+			throw new RuntimeException("Non puoi cancellare, ci sono giocatori");
+		}
 		repository.delete(tavoloInstance);
+	}
+
+	@Override
+	public List<Tavolo> cercaPerUtente(Utente utenteInstance) {
+		return repository.findTavoloByUtente(utenteInstance);
 	}
 
 }
