@@ -58,7 +58,7 @@ public class Utente {
 	@Column(name = "credito_accumulato")
 	private Double creditoAccumulato;
 
-	@NotEmpty(message="{ruoli.notempty}")
+	@NotEmpty(message = "{ruoli.notempty}")
 	@ManyToMany
 	@JoinTable(name = "utente_ruolo", joinColumns = @JoinColumn(name = "utente_id", referencedColumnName = "ID"), inverseJoinColumns = @JoinColumn(name = "ruolo_id", referencedColumnName = "ID"))
 	private Set<Ruolo> ruoli = new HashSet<>(0);
