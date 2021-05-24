@@ -7,6 +7,7 @@ import it.prova.gestionepokerspringrest.model.Utente;
 
 public interface UtenteRepository extends CrudRepository<Utente, Long>, CustomUtenteRepository{
 	
+	//@EntityGraph(attributePaths = {"ruoli"})
 	Utente findByUsername(String username);
 	
 	@Query("select u from Utente u left join fetch u.ruoli r where u.id=?1")

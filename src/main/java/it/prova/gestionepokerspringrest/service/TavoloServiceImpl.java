@@ -58,4 +58,9 @@ public class TavoloServiceImpl implements TavoloService{
 		return repository.findTavoloByUtente(utenteInstance);
 	}
 
+	@Override
+	public List<Tavolo> findByExample(Tavolo example) {
+		return repository.findByExample(example);
+	}
+
 }

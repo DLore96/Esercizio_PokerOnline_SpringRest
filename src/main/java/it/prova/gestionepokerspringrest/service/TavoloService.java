@@ -20,4 +20,6 @@ public interface TavoloService {
 	public void rimuovi(Tavolo tavoloInstance);
 	
 	public List<Tavolo> cercaPerUtente(Utente utenteInstance); 
+	
+	public List<Tavolo> findByExample(Tavolo example);
 }

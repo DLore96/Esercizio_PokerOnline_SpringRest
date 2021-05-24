@@ -1,7 +1,6 @@
 package it.prova.gestionepokerspringrest.web.api;
 
 import java.util.List;
-import java.util.Set;
 
 import javax.validation.Valid;
 
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import it.prova.gestionepokerspringrest.model.Ruolo;
 import it.prova.gestionepokerspringrest.model.Utente;
 import it.prova.gestionepokerspringrest.service.RuoloService;
 import it.prova.gestionepokerspringrest.service.UtenteService;
@@ -54,7 +52,7 @@ public class UtenteController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Utente createNew(@Valid @RequestBody Utente utenteInput, @RequestBody Set<Ruolo> ruoli, @RequestHeader("authorization")String username) {
+	public Utente createNew(@Valid @RequestBody Utente utenteInput, @RequestHeader("authorization")String username) {
 		Utente utenteInstance= utenteService.cercaPerUsername(username);
 		
 		//UTILIZZO UN METODO PER VERIFICARE L'UTENTE CHE FA LA RICHIESTA 

@@ -66,7 +66,7 @@ public class Utente {
 	@JsonIgnoreProperties(value= {"utenti", "utenteCreazione"})
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "tavolo_id")
-	private Utente tavolo;
+	private Tavolo tavolo;
 	
 	public Utente() {
 	}
@@ -176,11 +176,11 @@ public class Utente {
 		this.ruoli = ruoli;
 	}
 
-	public Utente getTavolo() {
+	public Tavolo getTavolo() {
 		return tavolo;
 	}
 
-	public void setTavolo(Utente tavolo) {
+	public void setTavolo(Tavolo tavolo) {
 		this.tavolo = tavolo;
 	}
 	

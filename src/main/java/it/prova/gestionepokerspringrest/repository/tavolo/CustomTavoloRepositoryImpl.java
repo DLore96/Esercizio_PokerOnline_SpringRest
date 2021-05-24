@@ -24,7 +24,7 @@ public class CustomTavoloRepositoryImpl implements CustomTavoloRepository{
 		List<String> whereClauses = new ArrayList<String>();
 
 		StringBuilder queryBuilder = new StringBuilder(
-				"select t from Tavolo t left join fetch t.utenti u left join fetch u.utenteCreazione uc  where t.id = t.id ");
+				"select t from Tavolo t left join fetch t.utenti u left join fetch t.utenteCreazione uc  where t.id = t.id ");
 
 		if (StringUtils.isNotEmpty(example.getDenominazione())) {
 			whereClauses.add(" t.denominazione  like :denominazione ");
@@ -32,7 +32,7 @@ public class CustomTavoloRepositoryImpl implements CustomTavoloRepository{
 		}
 		
 		if (example.getEsperienzaMinima()!=null && example.getEsperienzaMinima()>=0) {
-			whereClauses.add(" t.esperienzaMinima  = :esperienzaMinima ");
+			whereClauses.add(" t.esperienzaMinima  <= :esperienzaMinima ");
 			paramaterMap.put("esperienzaMinima", example.getEsperienzaMinima());
 		}
 		if (example.getCifraMinima()!=null && example.getCifraMinima()>=0) {
